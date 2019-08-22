@@ -24,14 +24,7 @@ try:
 	r = requests.get('{}/{}'.format(fb_url, 'me/feed'), params={'message':"ftf!",'access_token': user_access_token})
 	print(r.status_code)
 	r.raise_for_status()
-except requests.exceptions.RequestException as err:
-	print(err)
-	r = "nope"
-
-try:
 	data = r.json()
-except:
-	print('json parsing failure')
 
 print(data)
 
