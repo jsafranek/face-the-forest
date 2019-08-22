@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 import configparser
-
-import facebook
+import requests
 
 # Read from config file
 config = configparser.ConfigParser()
@@ -18,9 +17,19 @@ if access_token is None:
 	print("access_token not defined in 'etc/facetheforest.conf'")
 	exit()
 
-# Facebook SDK for Python
-graph = facebook.GraphAPI(access_token=access_token, version="2.12")
+print(access_token)
+fb_url = 'https://graph.facebook.com'
 
-print("\n## put_object():\n")
-# Write 'Hello, world' to the active user's wall.
-graph.put_object(parent_object='me', connection_name='feed', message='face-the-forest')
+try:
+	r = requests.get('{}/{}'.format(fb_url, 'me'), params={'access_token': access_token})
+	r.raise_for_status()
+except requests.exceptions.RequestException as err:
+	print(err)
+	r = "nope"
+
+try:
+	data = r.json()
+	print(data)
+except:
+	print('json parsing failure')
+print(r)
