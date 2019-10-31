@@ -1,4 +1,4 @@
-Development discontinued
+Development temporarily discontinued due to changes in facebook's API
 
 # Face-the-forest
 
