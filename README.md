@@ -1,3 +1,5 @@
+Development discontinued
+
 # Face-the-forest
 
 A tool created for people willing to participate in democratic society. Face-the-forest 🌳 provides you with mechanisms to effectively engage in internet activism on social media.
